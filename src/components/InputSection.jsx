@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
 
-const InputSection = ({addTask,clearAll}) => {
-    const[value,setValue]=useState("")
+
+const InputSection = ({addTask,clearAll,setValue,value,isEdit,updateTask}) => {
+    
     const handleSubmit =(e)=>{
-        e.preventDefault()
+      e.preventDefault()
+      if(!isEdit){
+        
         addTask(value)
         setValue("")
-    }
+    
+  }else{
+   
+    updateTask(isEdit.id,value)
+  }
+ 
+}
+
+
 
   return (
    <form onSubmit={handleSubmit} className='form'>

@@ -7,6 +7,8 @@ import "./App.css";
 
 function App() {
   const[allTasks,setAllTasks]=useState([])
+  const[value,setValue]=useState("")
+  const[isEdit,setIsEdit]=useState(null)
   const addTask=(task)=>{
   if(task.trim() !==""){
     setAllTasks([...allTasks,{
@@ -21,10 +23,25 @@ function App() {
   const clearAll=()=>{
     setAllTasks([])
   }
+  const editTask=(id)=>{
+   const findTask= allTasks.find((item)=>(item.id===id))
+
+   setValue(findTask.task)
+   setIsEdit(findTask)
+  //  console.log(isEdit);
+  }
+  const updateTask=(id,task)=>{
+    console.log(id,task);
+    const updated=allTasks.map((item)=>item.id===id ? {id,task}:item)
+    // console.log(updated);
+ 
+    setAllTasks(updated)
+    setIsEdit("")
+  }
   return (
     <div className="container">
-      <InputSection addTask={addTask} setAllTasks={setAllTasks} clearAll={clearAll}/>
-      {allTasks.map((item)=>(<TaskSection key={item.id}{...item} deleteTask={deleteTask}  />))}
+      <InputSection addTask={addTask} setAllTasks={setAllTasks} clearAll={clearAll} setValue={setValue} value={value} isEdit={isEdit} updateTask={updateTask} />
+      {allTasks.map((item)=>(<TaskSection key={item.id}{...item} deleteTask={deleteTask} editTask={editTask}   />))}
       
     </div>
   )
