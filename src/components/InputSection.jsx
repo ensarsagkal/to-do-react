@@ -12,6 +12,7 @@ const InputSection = ({addTask,clearAll,setValue,value,isEdit,updateTask}) => {
   }else{
    
     updateTask(isEdit.id,value)
+    setValue("")
   }
  
 }
