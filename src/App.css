@@ -42,19 +42,42 @@ body{
     cursor: pointer; 
     margin-right: .5rem;
     border-radius: 8px;
+    font-size: 1.2rem;
 }
 .tasks{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background:#044350;
-    color: #fff;
+    color:  #eef8e0;
     padding: 0.75rem 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
 }
 .delete{
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: #b21f1f;
+
+}
+.edit{
+    cursor: pointer;
+    font-size: 1.2rem;
+    color:  #eef8e0;
+    margin-right: .2rem;
+    
+}
+
+.done{
+    cursor: pointer;
+    font-size: 1.2rem;
+    color:  #eef8e0;
+    margin-right: .2rem;
+}
+.doneClicked{
+    text-decoration-style: solid;
+    text-decoration-line: line-through;
+    text-decoration-color:#da0808;
+    opacity: 0.9;
+    color: #07be16;
 }

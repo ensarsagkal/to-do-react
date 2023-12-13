@@ -13,7 +13,8 @@ function App() {
   if(task.trim() !==""){
     setAllTasks([...allTasks,{
       id: uuidv4(),
-      task:task
+      task:task,
+      done: false
     }])
   }
   }
@@ -38,10 +39,21 @@ function App() {
     setAllTasks(updated)
     setIsEdit("")
   }
+  const handleDone=(id)=>{
+    
+    setAllTasks(allTasks.map((item)=>{
+      if(item.id===id){
+        // console.log(item);
+        return{...item, done:!item.done}
+      }
+     
+      return item
+    }))
+  }
   return (
     <div className="container">
       <InputSection addTask={addTask} setAllTasks={setAllTasks} clearAll={clearAll} setValue={setValue} value={value} isEdit={isEdit} updateTask={updateTask} />
-      {allTasks.map((item)=>(<TaskSection key={item.id}{...item} deleteTask={deleteTask} editTask={editTask}   />))}
+      {allTasks.map((item)=>(<TaskSection key={item.id}{...item} deleteTask={deleteTask} editTask={editTask} handleDone={handleDone}   />))}
       
     </div>
   )
