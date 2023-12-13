@@ -33,7 +33,7 @@ function App() {
   const updateTask=(id,task)=>{
     console.log(id,task);
     const updated=allTasks.map((item)=>item.id===id ? {id,task}:item)
-    // console.log(updated);
+    console.log(allTasks);
  
     setAllTasks(updated)
     setIsEdit("")
